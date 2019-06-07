@@ -1,0 +1,1 @@
+{"version":3,"sources":["src\\scss\\default.scss"],"names":[],"mappings":"AAAA;EACE;EACA;EACA;;;AAEF;EACE;;;AAEF;EACE","file":"default.80612fa5.css","sourceRoot":"..","sourcesContent":["*{\r\n  box-sizing: border-box;\r\n  padding: 0;\r\n  margin: 0;\r\n}\r\nh1{\r\n  font-size: 24px;\r\n}\r\np {\r\n  font-size: 15px;\r\n}"]}

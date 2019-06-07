@@ -1,0 +1,128 @@
+$color-p: #868AAF;
+$color: white;
+$background: #060a3d;
+@keyframes rotate {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.player {
+  background-color: $background;
+  height: 100vh;
+  header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h1 {
+      color: $color;
+      padding: 20px 0 14px 0;
+    }
+    p {
+      color: $color-p;
+    }
+  }
+  main {
+    .changePage {
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      padding: 24px 0;
+      span {
+        margin: 0 5px;
+        display: block;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: #6a134f;
+        &.active {
+          width: 10px;
+          height: 10px;
+          background-color: #db3baa;
+        }
+      }
+      
+    }
+    .effect {
+      height: 50vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      >div {
+        position: absolute;
+      }
+      .effect1 {
+        background: url(../svg/effect-no-move.svg) 0 0 no-repeat;
+        width: 70vw;
+        height: 70vw;
+        animation: rotate 20s linear infinite;
+      }
+      .effect2 {
+        background: url(../svg/effect-move1.svg) 0 0 no-repeat;
+        width: 60vw;
+        height: 60vw;
+        animation: rotate 10s linear infinite reverse;
+      }
+      .effect3 {
+        background: url(../svg/effect-move2.svg) 0 0 no-repeat;
+        width: 24vw;
+        height: 24vw;
+        animation: rotate 10s linear infinite;
+      }
+    }
+    article.lyric {
+      text-align: center;
+      p {
+        line-height: 1.6;
+        color: $color-p;
+        &.active {
+          color: $color;
+          font-size: 16px;
+        }
+      }
+    }
+  }
+  .controls {
+    display: flex;
+    justify-content: center;
+    padding: 16px;
+    svg {
+      width: 24px;
+      height: 24px;
+      margin: 0 20px;
+    }
+  }
+  .bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    span {
+      color: $color-p;
+    }
+    .barWrapper {
+      display: flex;
+      margin: 0 8px;
+      position: relative;
+      align-items: center;
+      .point {
+        position: absolute;
+        background: url(../svg/progress.svg) no-repeat;
+        background-size: contain;
+        width: 16px;
+        height: 16px;
+        z-index: 1;
+      }
+      .barContent {
+        border-radius: 3px;
+        width: 60vw;
+        height: 4px;
+        background-color: #0025fe;
+      }
+    }
+    
+  }
+}
