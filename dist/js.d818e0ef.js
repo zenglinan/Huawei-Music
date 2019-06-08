@@ -117,7 +117,41 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"src/js/index.js":[function(require,module,exports) {
+})({"src/js/help.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _default = {
+  ajax: function ajax(_ref) {
+    var method = _ref.method,
+        url = _ref.url;
+    return new Promise(function (reslove, reject) {
+      var xhr = new XMLHttpRequest();
+      xhr.open(method, url);
+
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+          if (xhr.status >= 200 && xhr.status < 400) {
+            reslove(xhr.response);
+          }
+        }
+      };
+
+      xhr.send();
+    });
+  }
+};
+exports.default = _default;
+},{}],"src/js/index.js":[function(require,module,exports) {
+"use strict";
+
+var _help = _interopRequireDefault(require("./help"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -127,41 +161,57 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 var Player =
 /*#__PURE__*/
 function () {
-  function Player() {
+  function Player(rootNode) {
     _classCallCheck(this, Player);
 
-    this.index = 0;
-    this.music = [];
-    this.currentMusic = null;
+    this.root = document.querySelector(rootNode);
+
+    this.$ = function (node) {
+      return root.querySelector(node);
+    };
+
+    this.$$ = function (node) {
+      return root.querySelectorAll(node);
+    };
+
+    this.musicList = [];
+    this.audio = new Audio();
     this.init();
+    this.bind();
   }
 
   _createClass(Player, [{
     key: "init",
     value: function init() {
-      new Promise(function (reslove, reject) {
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', 'https://jirengu.github.io/data-mock/huawei-music/music-list.json');
+      var _this = this;
 
-        xhr.onreadystatechange = function () {
-          if (xhr.readyState === 4) {
-            if (xhr.status >= 200 && xhr.status < 400) {
-              console.log(xhr.response);
-              reslove(JSON.stringify(xhr.response));
-            }
-          }
-        };
+      _help.default.ajax({
+        url: 'https://jirengu.github.io/data-mock/huawei-music/music-list.json',
+        method: 'GET'
+      }).then(function (res) {
+        _this.musicList = JSON.parse(res); // this.audio.src = this.musicList[0].url
 
-        xhr.send();
+        _this.audio.src = "http://dl.stream.qqmusic.qq.com/M500002u8ZOM4C7QF4.mp3?vkey=F1C2AF1C030EAD39CC06BD98EFD8ED5C937D11AA206722BBB795EDBDCC9039F6D90BE27E83C566F9A789F17D668CB6BAD39DF2C8B3020247&guid=5150825362&fromtag=1";
       });
+    }
+  }, {
+    key: "bind",
+    value: function bind() {
+      var _this2 = this;
+
+      playBtn.onclick = function () {
+        console.log(_this2.audio);
+
+        _this2.audio.play();
+      };
     }
   }]);
 
   return Player;
 }();
 
-var player = new Player();
-},{}],"C:/Users/datou/AppData/Roaming/npm-cache/_npx/3280/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+var player = new Player("#player");
+},{"./help":"src/js/help.js"}],"C:/Users/datou/AppData/Roaming/npm-cache/_npx/9804/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -189,7 +239,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53201" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61525" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -364,5 +414,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["C:/Users/datou/AppData/Roaming/npm-cache/_npx/3280/node_modules/parcel/src/builtins/hmr-runtime.js","src/js/index.js"], null)
-//# sourceMappingURL=js.d818e0ef.js.map
+},{}]},{},["C:/Users/datou/AppData/Roaming/npm-cache/_npx/9804/node_modules/parcel/src/builtins/hmr-runtime.js","src/js/index.js"], null)
+//# sourceMappingURL=/js.d818e0ef.js.map
