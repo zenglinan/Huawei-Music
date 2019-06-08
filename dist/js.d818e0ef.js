@@ -119,7 +119,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   return newRequire;
 })({"src/js/index.js":[function(require,module,exports) {
 console.log('test');
-},{}],"C:/Users/datou/AppData/Roaming/npm-cache/_npx/14036/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{}],"C:/Users/datou/AppData/Roaming/npm-cache/_npx/9328/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -147,7 +147,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53114" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52673" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -322,5 +322,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["C:/Users/datou/AppData/Roaming/npm-cache/_npx/14036/node_modules/parcel/src/builtins/hmr-runtime.js","src/js/index.js"], null)
+},{}]},{},["C:/Users/datou/AppData/Roaming/npm-cache/_npx/9328/node_modules/parcel/src/builtins/hmr-runtime.js","src/js/index.js"], null)
 //# sourceMappingURL=/js.d818e0ef.js.map

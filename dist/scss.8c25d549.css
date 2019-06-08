@@ -9,6 +9,10 @@
 .player {
   background-color: #060a3d;
   height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 .player header {
   display: flex;
@@ -22,6 +26,11 @@
 }
 .player header p {
   color: #868AAF;
+}
+.player main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
 .player main .changePage {
   display: flex;
@@ -43,11 +52,14 @@
   background-color: #db3baa;
 }
 .player main .effect {
-  height: 50vh;
+  width: 100vw;
+  flex-direction: column;
   display: flex;
+  flex-grow: 1;
   justify-content: center;
   align-items: center;
   position: relative;
+  overflow: hidden;
 }
 .player main .effect > div {
   position: absolute;
@@ -84,7 +96,7 @@
 .player .controls {
   display: flex;
   justify-content: center;
-  padding: 16px;
+  padding: 16px 0;
 }
 .player .controls svg {
   width: 24px;
@@ -118,6 +130,24 @@
   width: 60vw;
   height: 4px;
   background-color: #0025fe;
+}
+.player .buttons {
+  align-items: center;
+  padding: 25px;
+  display: flex;
+  justify-content: space-around;
+}
+.player .buttons svg {
+  width: 30px;
+  height: 30px;
+}
+.player .buttons svg.pause {
+  width: 60px;
+  height: 60px;
+}
+.player .buttons svg.controlSong {
+  width: 45px;
+  height: 45px;
 }
 
 /*# sourceMappingURL=/scss.8c25d549.css.map */

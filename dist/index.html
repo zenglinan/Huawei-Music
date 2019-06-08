@@ -3,7 +3,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>华为音乐</title>
   <link rel="stylesheet" href="/default.80612fa5.css">
@@ -33,13 +34,13 @@
     </main>
     <div class="controls">
       <svg>
-        <use xlink:href="#1"></use></svg>
+        <use xlink:href="#icon-download"></use></svg>
       <svg>
-        <use xlink:href="#2"></use></svg>
+        <use xlink:href="#icon-share"></use></svg>
       <svg>
-        <use xlink:href="#3"></use></svg>
+        <use xlink:href="#icon-like"></use></svg>
       <svg>
-        <use xlink:href="#4"></use></svg>
+        <use xlink:href="#icon-comment"></use></svg>
     </div>
     <div class="bar">
       <span>00:00</span>
@@ -49,29 +50,16 @@
       </div>
       <span>05:25</span>
     </div>
-    <div class="buttons"></div>
+    <div class="buttons">
+      <svg><use xlink:href="#repeat"></use></svg>
+      <svg class="controlSong"><use xlink:href="#pre"></use></svg>
+      <svg class="pause"><use xlink:href="#pause"></use></svg>
+      <svg class="controlSong"><use xlink:href="#next"></use></svg>
+      <svg><use xlink:href="#list"></use></svg>
+    </div>
   </div>
   <script src="/js.d818e0ef.js"></script>
+  <script src="/icon.1ebf523c.js"></script>
 </body>
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" hidden="">
-  <symbol id="1" null="">
-    <g fill="#FD1BB8">
-      <path d="M23.998 19.189h-.018a1.365 1.365 0 0 0-1.352-1.2c-.698 0-1.268.524-1.353 1.2h-.017s0 2.054-2.055 2.054H4.818c-2.055 0-2.055-2.054-2.055-2.054h-.017a1.366 1.366 0 0 0-1.353-1.2c-.698 0-1.267.524-1.353 1.2H.023s0 .045.005.127c0 .015-.005.029-.005.044 0 .103.014.203.036.3.145 1.207.893 4.323 4.76 4.323h14.384c3.626 0 4.513-2.948 4.728-4.22.042-.13.065-.266.067-.403 0-.024-.006-.045-.007-.068l.007-.103z"></path>
-      <path d="M3.598 11.53l7.537 7.508a1.251 1.251 0 0 0 1.766 0l7.537-7.508a1.24 1.24 0 0 0 0-1.759 1.252 1.252 0 0 0-1.766 0l-5.391 5.37V1.243a1.25 1.25 0 0 0-1.249-1.24c-.69 0-1.25.554-1.25 1.24V15.17L5.365 9.77a1.252 1.252 0 0 0-2.106.55c-.114.434.016.897.34 1.209z"></path>
-    </g>
-  </symbol>
-  <symbol id="2" viewBox="0 0 23 24">
-    <path d="M19.628 17.447c-.972-.001-1.893.431-2.513 1.179l-10.57-5.883c.004-.066.01-.131.01-.198 0-.114-.006-.226-.017-.336l10.946-6.46a3.268 3.268 0 1 0-1.124-2.463c0 .39.072.763.198 1.11l-10.606 6.26a3.263 3.263 0 0 0-2.665-1.38 3.268 3.268 0 1 0 2.739 5.048l10.392 5.785a3.268 3.268 0 1 0 3.21-2.662z" fill="#FD1BB8" fill-rule="evenodd" opacity=".8"></path>
-  </symbol>
-  <symbol id="3" viewBox="0 0 24 22">
-    <g fill="#FD1BB8" fill-rule="evenodd" opacity=".8">
-      <path d="M23.53 1.94C22.904.689 21.726 0 20.215 0H3.785C2.274 0 1.096.689.47 1.94a4.43 4.43 0 0 0-.449 1.825v10.039c0 .095.014.953.45 1.83.625 1.253 1.803 1.94 3.314 1.94h.572v1.654c0 .191.027.899.55 1.443.246.252.682.552 1.376.552.748 0 1.409-.531 1.626-.729l3.547-2.92h8.76c1.51 0 2.688-.687 3.314-1.94.435-.877.449-1.735.449-1.83V3.764a4.43 4.43 0 0 0-.45-1.823zm-1.606 11.864c0 .007-.014.47-.232.912-.272.544-.742.803-1.477.803h-9.127c-.238 0-.47.082-.653.231l-3.853 3.172c-.013.014-.027.027-.047.041a1.229 1.229 0 0 1-.13.102v-2.062c0-.089-.013-.177-.034-.259v-.013c-.19-1.123-1.157-1.212-1.45-1.212H3.786c-.94 0-1.28-.429-1.457-.755a2.375 2.375 0 0 1-.258-.96V3.764c0-.006.013-.469.231-.911.272-.545.742-.803 1.477-.803h16.43c.735 0 1.205.251 1.477.803.218.442.232.905.232.912v10.039h.007z" fill-rule="nonzero"></path>
-      <path d="M5.16 8.794a1.64 1.64 0 1 0 3.28 0 1.64 1.64 0 0 0-3.28 0zM10.36 8.794a1.64 1.64 0 1 0 3.28 0 1.64 1.64 0 0 0-3.28 0zM15.56 8.794a1.64 1.64 0 1 0 3.28 0 1.64 1.64 0 0 0-3.28 0z"></path>
-    </g>
-  </symbol>
-  <symbol id="4" viewBox="0 0 24 21">
-    <path d="M17.4 0c-2.1 0-4.077.899-5.4 2.357C10.677.9 8.7 0 6.6 0 2.877 0 0 2.696 0 6.186c0 4.271 4.077 7.696 10.255 12.983L12 20.628l1.745-1.459C19.923 13.882 24 10.457 24 6.186 24 2.696 21.123 0 17.4 0z" fill="#FD1BB8" fill-rule="evenodd" opacity=".8"></path>
-  </symbol>
-</svg>
 
 </html>

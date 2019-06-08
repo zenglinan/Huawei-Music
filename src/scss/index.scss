@@ -12,6 +12,10 @@ $background: #060a3d;
 .player {
   background-color: $background;
   height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
   header {
     display: flex;
     flex-direction: column;
@@ -26,6 +30,9 @@ $background: #060a3d;
     }
   }
   main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
     .changePage {
       display:flex;
       justify-content: center;
@@ -47,11 +54,14 @@ $background: #060a3d;
       
     }
     .effect {
-      height: 50vh;
+      width: 100vw;
+      flex-direction: column;
       display: flex;
+      flex-grow: 1;
       justify-content: center;
       align-items: center;
       position: relative;
+      overflow: hidden;
       >div {
         position: absolute;
       }
@@ -89,7 +99,7 @@ $background: #060a3d;
   .controls {
     display: flex;
     justify-content: center;
-    padding: 16px;
+    padding: 16px 0;
     svg {
       width: 24px;
       height: 24px;
@@ -124,5 +134,23 @@ $background: #060a3d;
       }
     }
     
+  }
+  .buttons {
+    align-items: center;
+    padding: 25px;
+    display: flex;
+    justify-content: space-around;
+    svg {
+      width: 30px;
+      height: 30px;
+      &.pause {
+        width: 60px;
+        height: 60px;
+      }
+      &.controlSong {
+        width: 45px;
+        height: 45px;
+      }
+    }
   }
 }
