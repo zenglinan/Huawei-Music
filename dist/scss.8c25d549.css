@@ -91,7 +91,7 @@
 }
 .player main article.lyric p.active {
   color: white;
-  font-size: 16px;
+  font-size: 4.5rem;
 }
 .player .controls {
   display: flex;
@@ -99,17 +99,23 @@
   padding: 16px 0;
 }
 .player .controls svg {
-  width: 24px;
-  height: 24px;
+  width: 4rem;
+  height: 4rem;
   margin: 0 20px;
 }
 .player .bar {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 }
 .player .bar span {
   color: #868AAF;
+}
+.player .bar span.begin {
+  padding-left: 10px;
+}
+.player .bar span.end {
+  padding-right: 10px;
 }
 .player .bar .barWrapper {
   display: flex;
@@ -127,13 +133,13 @@
 }
 .player .bar .barWrapper .barContent {
   border-radius: 3px;
-  width: 60vw;
+  width: 65vw;
   height: 4px;
   background-color: #0025fe;
 }
 .player .buttons {
   align-items: center;
-  padding: 25px;
+  padding: 20px;
   display: flex;
   justify-content: space-around;
 }
