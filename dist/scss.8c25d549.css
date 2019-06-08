@@ -27,18 +27,13 @@
 .player header p {
   color: #868AAF;
 }
-.player main {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-}
-.player main .changePage {
+.player header .changePage {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 24px 0;
 }
-.player main .changePage span {
+.player header .changePage span {
   margin: 0 5px;
   display: block;
   width: 6px;
@@ -46,12 +41,23 @@
   border-radius: 50%;
   background-color: #6a134f;
 }
-.player main .changePage span.active {
+.player header .changePage span.active {
   width: 10px;
   height: 10px;
   background-color: #db3baa;
 }
-.player main .effect {
+.player main {
+  width: 200vw;
+  flex-grow: 1;
+  display: flex;
+}
+.player main .pageOne {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.player main .pageOne .effect {
   width: 100vw;
   flex-direction: column;
   display: flex;
@@ -61,99 +67,103 @@
   position: relative;
   overflow: hidden;
 }
-.player main .effect > div {
+.player main .pageOne .effect > div {
   position: absolute;
 }
-.player main .effect .effect1 {
-  background: url(/effect-no-move.e6a51026.svg) 0 0 no-repeat;
+.player main .pageOne .effect .effect1 {
+  background: url(effect-no-move.e6a51026.svg) 0 0 no-repeat;
   width: 70vw;
   height: 70vw;
   animation: rotate 20s linear infinite;
 }
-.player main .effect .effect2 {
-  background: url(/effect-move1.8d0ce205.svg) 0 0 no-repeat;
+.player main .pageOne .effect .effect2 {
+  background: url(effect-move1.8d0ce205.svg) 0 0 no-repeat;
   width: 60vw;
   height: 60vw;
   animation: rotate 10s linear infinite reverse;
 }
-.player main .effect .effect3 {
-  background: url(/effect-move2.143040a0.svg) 0 0 no-repeat;
+.player main .pageOne .effect .effect3 {
+  background: url(effect-move2.143040a0.svg) 0 0 no-repeat;
   width: 24vw;
   height: 24vw;
   animation: rotate 10s linear infinite;
 }
-.player main article.lyric {
+.player main .pageOne article.lyric {
   text-align: center;
 }
-.player main article.lyric p {
+.player main .pageOne article.lyric p {
   line-height: 1.6;
   color: #868AAF;
 }
-.player main article.lyric p.active {
+.player main .pageOne article.lyric p.active {
   color: white;
   font-size: 4.5rem;
 }
-.player .controls {
+.player main .pageTwo {
+  width: 100vw;
+  background-color: red;
+}
+.player footer .controls {
   display: flex;
   justify-content: center;
   padding: 16px 0;
 }
-.player .controls svg {
+.player footer .controls svg {
   width: 4rem;
   height: 4rem;
   margin: 0 20px;
 }
-.player .bar {
+.player footer .bar {
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
-.player .bar span {
+.player footer .bar span {
   color: #868AAF;
 }
-.player .bar span.begin {
+.player footer .bar span.begin {
   padding-left: 10px;
 }
-.player .bar span.end {
+.player footer .bar span.end {
   padding-right: 10px;
 }
-.player .bar .barWrapper {
+.player footer .bar .barWrapper {
   display: flex;
   margin: 0 8px;
   position: relative;
   align-items: center;
 }
-.player .bar .barWrapper .point {
+.player footer .bar .barWrapper .point {
   position: absolute;
-  background: url(/progress.798a5c76.svg) no-repeat;
+  background: url(progress.798a5c76.svg) no-repeat;
   background-size: contain;
   width: 16px;
   height: 16px;
   z-index: 1;
 }
-.player .bar .barWrapper .barContent {
+.player footer .bar .barWrapper .barContent {
   border-radius: 3px;
   width: 65vw;
   height: 4px;
   background-color: #0025fe;
 }
-.player .buttons {
+.player footer .buttons {
   align-items: center;
   padding: 20px;
   display: flex;
   justify-content: space-around;
 }
-.player .buttons svg {
+.player footer .buttons svg {
   width: 30px;
   height: 30px;
 }
-.player .buttons svg.pause {
+.player footer .buttons svg.pause {
   width: 60px;
   height: 60px;
 }
-.player .buttons svg.controlSong {
+.player footer .buttons svg.controlSong {
   width: 45px;
   height: 45px;
 }
 
-/*# sourceMappingURL=/scss.8c25d549.css.map */
+/*# sourceMappingURL=scss.8c25d549.css.map */

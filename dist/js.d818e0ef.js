@@ -118,8 +118,50 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"src/js/index.js":[function(require,module,exports) {
-console.log('test');
-},{}],"C:/Users/datou/AppData/Roaming/npm-cache/_npx/9328/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var Player =
+/*#__PURE__*/
+function () {
+  function Player() {
+    _classCallCheck(this, Player);
+
+    this.index = 0;
+    this.music = [];
+    this.currentMusic = null;
+    this.init();
+  }
+
+  _createClass(Player, [{
+    key: "init",
+    value: function init() {
+      new Promise(function (reslove, reject) {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'https://jirengu.github.io/data-mock/huawei-music/music-list.json');
+
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4) {
+            if (xhr.status >= 200 && xhr.status < 400) {
+              console.log(xhr.response);
+              reslove(JSON.stringify(xhr.response));
+            }
+          }
+        };
+
+        xhr.send();
+      });
+    }
+  }]);
+
+  return Player;
+}();
+
+var player = new Player();
+},{}],"C:/Users/datou/AppData/Roaming/npm-cache/_npx/3280/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -147,7 +189,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52673" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53201" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -322,5 +364,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["C:/Users/datou/AppData/Roaming/npm-cache/_npx/9328/node_modules/parcel/src/builtins/hmr-runtime.js","src/js/index.js"], null)
-//# sourceMappingURL=/js.d818e0ef.js.map
+},{}]},{},["C:/Users/datou/AppData/Roaming/npm-cache/_npx/3280/node_modules/parcel/src/builtins/hmr-runtime.js","src/js/index.js"], null)
+//# sourceMappingURL=js.d818e0ef.js.map
