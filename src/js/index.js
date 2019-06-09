@@ -36,9 +36,9 @@ class Player {
     nextBtn.onclick = () => {
       this.playNextSong()
     }
-    searchInput.onsubmit = (e)=>{
+    searchInput.onsubmit = (e) => {
       e.preventDefault()
-      alert(1)
+      help.ajax({ method: 'POST', url: ``})
     }
   }
   playOrPause(option) {
