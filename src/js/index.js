@@ -36,6 +36,9 @@ class Player {
     nextBtn.onclick = () => {
       this.playNextSong()
     }
+    searchInput.onsubmit = ()=>{
+      alert(1);
+    }
   }
   playOrPause(option) {
     if (option === "play") {
