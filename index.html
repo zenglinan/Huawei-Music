@@ -16,7 +16,7 @@
 </script>
 
 <body>
-  <div class="player">
+  <div id="player">
     <header>
       <h1>水星记</h1>
       <p>郭顶 - 飞行器的执行周期</p>
@@ -74,11 +74,11 @@
       <div class="buttons">
         <svg>
           <use xlink:href="#repeat" /></svg>
-        <svg class="controlSong">
+        <svg class="controlSong" id="preBtn">
           <use xlink:href="#pre" /></svg>
-        <svg class="pause" id="playBtn">
-          <use xlink:href="#pause" /></svg>
-        <svg class="controlSong">
+        <svg class="pausing" id="playBtn">
+          <use xlink:href="#pausing" /></svg>
+        <svg class="controlSong" id="nextBtn">
           <use xlink:href="#next" /></svg>
         <svg>
           <use xlink:href="#list" /></svg>

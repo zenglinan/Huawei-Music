@@ -9,7 +9,7 @@ $background: #060a3d;
     transform: rotate(360deg);
   }
 }
-.player {
+#player {
   background-color: $background;
   height: 100vh;
   width: 100vw;
@@ -161,7 +161,7 @@ $background: #060a3d;
       svg {
         width: 30px;
         height: 30px;
-        &.pause {
+        &.pausing,&.playing {
           width: 60px;
           height: 60px;
         }

@@ -145,10 +145,288 @@ var _default = {
   }
 };
 exports.default = _default;
-},{}],"src/js/index.js":[function(require,module,exports) {
+},{}],"C:/Users/datou/AppData/Roaming/npm-cache/_npx/18648/node_modules/parcel/node_modules/process/browser.js":[function(require,module,exports) {
+
+// shim for using process in browser
+var process = module.exports = {}; // cached from whatever global is present so that test runners that stub it
+// don't break things.  But we need to wrap it in a try catch in case it is
+// wrapped in strict mode code which doesn't define any globals.  It's inside a
+// function because try/catches deoptimize in certain engines.
+
+var cachedSetTimeout;
+var cachedClearTimeout;
+
+function defaultSetTimout() {
+  throw new Error('setTimeout has not been defined');
+}
+
+function defaultClearTimeout() {
+  throw new Error('clearTimeout has not been defined');
+}
+
+(function () {
+  try {
+    if (typeof setTimeout === 'function') {
+      cachedSetTimeout = setTimeout;
+    } else {
+      cachedSetTimeout = defaultSetTimout;
+    }
+  } catch (e) {
+    cachedSetTimeout = defaultSetTimout;
+  }
+
+  try {
+    if (typeof clearTimeout === 'function') {
+      cachedClearTimeout = clearTimeout;
+    } else {
+      cachedClearTimeout = defaultClearTimeout;
+    }
+  } catch (e) {
+    cachedClearTimeout = defaultClearTimeout;
+  }
+})();
+
+function runTimeout(fun) {
+  if (cachedSetTimeout === setTimeout) {
+    //normal enviroments in sane situations
+    return setTimeout(fun, 0);
+  } // if setTimeout wasn't available but was latter defined
+
+
+  if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
+    cachedSetTimeout = setTimeout;
+    return setTimeout(fun, 0);
+  }
+
+  try {
+    // when when somebody has screwed with setTimeout but no I.E. maddness
+    return cachedSetTimeout(fun, 0);
+  } catch (e) {
+    try {
+      // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
+      return cachedSetTimeout.call(null, fun, 0);
+    } catch (e) {
+      // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
+      return cachedSetTimeout.call(this, fun, 0);
+    }
+  }
+}
+
+function runClearTimeout(marker) {
+  if (cachedClearTimeout === clearTimeout) {
+    //normal enviroments in sane situations
+    return clearTimeout(marker);
+  } // if clearTimeout wasn't available but was latter defined
+
+
+  if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
+    cachedClearTimeout = clearTimeout;
+    return clearTimeout(marker);
+  }
+
+  try {
+    // when when somebody has screwed with setTimeout but no I.E. maddness
+    return cachedClearTimeout(marker);
+  } catch (e) {
+    try {
+      // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
+      return cachedClearTimeout.call(null, marker);
+    } catch (e) {
+      // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
+      // Some versions of I.E. have different rules for clearTimeout vs setTimeout
+      return cachedClearTimeout.call(this, marker);
+    }
+  }
+}
+
+var queue = [];
+var draining = false;
+var currentQueue;
+var queueIndex = -1;
+
+function cleanUpNextTick() {
+  if (!draining || !currentQueue) {
+    return;
+  }
+
+  draining = false;
+
+  if (currentQueue.length) {
+    queue = currentQueue.concat(queue);
+  } else {
+    queueIndex = -1;
+  }
+
+  if (queue.length) {
+    drainQueue();
+  }
+}
+
+function drainQueue() {
+  if (draining) {
+    return;
+  }
+
+  var timeout = runTimeout(cleanUpNextTick);
+  draining = true;
+  var len = queue.length;
+
+  while (len) {
+    currentQueue = queue;
+    queue = [];
+
+    while (++queueIndex < len) {
+      if (currentQueue) {
+        currentQueue[queueIndex].run();
+      }
+    }
+
+    queueIndex = -1;
+    len = queue.length;
+  }
+
+  currentQueue = null;
+  draining = false;
+  runClearTimeout(timeout);
+}
+
+process.nextTick = function (fun) {
+  var args = new Array(arguments.length - 1);
+
+  if (arguments.length > 1) {
+    for (var i = 1; i < arguments.length; i++) {
+      args[i - 1] = arguments[i];
+    }
+  }
+
+  queue.push(new Item(fun, args));
+
+  if (queue.length === 1 && !draining) {
+    runTimeout(drainQueue);
+  }
+}; // v8 likes predictible objects
+
+
+function Item(fun, array) {
+  this.fun = fun;
+  this.array = array;
+}
+
+Item.prototype.run = function () {
+  this.fun.apply(null, this.array);
+};
+
+process.title = 'browser';
+process.env = {};
+process.argv = [];
+process.version = ''; // empty string to avoid regexp issues
+
+process.versions = {};
+
+function noop() {}
+
+process.on = noop;
+process.addListener = noop;
+process.once = noop;
+process.off = noop;
+process.removeListener = noop;
+process.removeAllListeners = noop;
+process.emit = noop;
+process.prependListener = noop;
+process.prependOnceListener = noop;
+
+process.listeners = function (name) {
+  return [];
+};
+
+process.binding = function (name) {
+  throw new Error('process.binding is not supported');
+};
+
+process.cwd = function () {
+  return '/';
+};
+
+process.chdir = function (dir) {
+  throw new Error('process.chdir is not supported');
+};
+
+process.umask = function () {
+  return 0;
+};
+},{}],"node_modules/_fast-glob@2.2.7@fast-glob/out/managers/options.js":[function(require,module,exports) {
+var process = require("process");
+"use strict";
+
+var __assign = this && this.__assign || function () {
+  __assign = Object.assign || function (t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+      s = arguments[i];
+
+      for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+    }
+
+    return t;
+  };
+
+  return __assign.apply(this, arguments);
+};
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+function prepare(options) {
+  var opts = __assign({
+    cwd: process.cwd(),
+    deep: true,
+    ignore: [],
+    dot: false,
+    stats: false,
+    onlyFiles: true,
+    onlyDirectories: false,
+    followSymlinkedDirectories: true,
+    unique: true,
+    markDirectories: false,
+    absolute: false,
+    nobrace: false,
+    brace: true,
+    noglobstar: false,
+    globstar: true,
+    noext: false,
+    extension: true,
+    nocase: false,
+    case: true,
+    matchBase: false,
+    transform: null
+  }, options);
+
+  if (opts.onlyDirectories) {
+    opts.onlyFiles = false;
+  }
+
+  opts.brace = !opts.nobrace;
+  opts.globstar = !opts.noglobstar;
+  opts.extension = !opts.noext;
+  opts.case = !opts.nocase;
+
+  if (options) {
+    opts.brace = 'brace' in options ? options.brace : opts.brace;
+    opts.globstar = 'globstar' in options ? options.globstar : opts.globstar;
+    opts.extension = 'extension' in options ? options.extension : opts.extension;
+    opts.case = 'case' in options ? options.case : opts.case;
+  }
+
+  return opts;
+}
+
+exports.prepare = prepare;
+},{"process":"C:/Users/datou/AppData/Roaming/npm-cache/_npx/18648/node_modules/parcel/node_modules/process/browser.js"}],"src/js/index.js":[function(require,module,exports) {
 "use strict";
 
 var _help = _interopRequireDefault(require("./help"));
+
+var _options = require("_fast-glob@2.2.7@fast-glob/out/managers/options");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -162,19 +440,22 @@ var Player =
 /*#__PURE__*/
 function () {
   function Player(rootNode) {
+    var _this = this;
+
     _classCallCheck(this, Player);
 
     this.root = document.querySelector(rootNode);
 
     this.$ = function (node) {
-      return root.querySelector(node);
+      return _this.root.querySelector(node);
     };
 
     this.$$ = function (node) {
-      return root.querySelectorAll(node);
+      return _this.root.querySelectorAll(node);
     };
 
     this.musicList = [];
+    this.currentIndex = 0;
     this.audio = new Audio();
     this.init();
     this.bind();
@@ -183,26 +464,75 @@ function () {
   _createClass(Player, [{
     key: "init",
     value: function init() {
-      var _this = this;
+      var _this2 = this;
 
       _help.default.ajax({
         url: 'https://jirengu.github.io/data-mock/huawei-music/music-list.json',
         method: 'GET'
       }).then(function (res) {
-        _this.musicList = JSON.parse(res); // this.audio.src = this.musicList[0].url
-
-        _this.audio.src = "http://dl.stream.qqmusic.qq.com/M500002u8ZOM4C7QF4.mp3?vkey=F1C2AF1C030EAD39CC06BD98EFD8ED5C937D11AA206722BBB795EDBDCC9039F6D90BE27E83C566F9A789F17D668CB6BAD39DF2C8B3020247&guid=5150825362&fromtag=1";
+        _this2.musicList = JSON.parse(res);
+        _this2.audio.src = _this2.musicList[0].url; // this.audio.src = "http://dl.stream.qqmusic.qq.com/M500002u8ZOM4C7QF4.mp3?vkey=F1C2AF1C030EAD39CC06BD98EFD8ED5C937D11AA206722BBB795EDBDCC9039F6D90BE27E83C566F9A789F17D668CB6BAD39DF2C8B3020247&guid=5150825362&fromtag=1"
       });
     }
   }, {
     key: "bind",
     value: function bind() {
-      var _this2 = this;
+      var _this3 = this;
 
       playBtn.onclick = function () {
-        console.log(_this2.audio);
+        if (playBtn.classList.contains('pausing')) {
+          _this3.playOrPause("play");
+        } else {
+          _this3.playOrPause("pause");
+        }
+      };
 
-        _this2.audio.play();
+      preBtn.onclick = function () {
+        _this3.playPreSong();
+      };
+
+      nextBtn.onclick = function () {
+        _this3.playNextSong();
+      };
+    }
+  }, {
+    key: "playOrPause",
+    value: function playOrPause(option) {
+      if (option === "play") {
+        this.audio.play();
+        console.log('here');
+        playBtn.classList.remove('pausing');
+        playBtn.classList.add('playing');
+        this.$("#playBtn>use").setAttribute('xlink:href', "#playing");
+      } else {
+        this.audio.pause();
+        playBtn.classList.remove('playing');
+        playBtn.classList.add('pausing');
+        this.$("#playBtn>use").setAttribute('xlink:href', "#pausing");
+      }
+    }
+  }, {
+    key: "playPreSong",
+    value: function playPreSong() {
+      var _this4 = this;
+
+      this.currentIndex = (this.musicList.length + this.currentIndex - 1) % this.musicList.length;
+      this.audio.src = this.musicList[this.currentIndex].url;
+
+      this.audio.oncanplay = function () {
+        _this4.playOrPause("play");
+      };
+    }
+  }, {
+    key: "playNextSong",
+    value: function playNextSong() {
+      var _this5 = this;
+
+      this.currentIndex = (this.musicList.length + this.currentIndex + 1) % this.musicList.length;
+      this.audio.src = this.musicList[this.currentIndex].url;
+
+      this.audio.oncanplay = function () {
+        _this5.playOrPause("play");
       };
     }
   }]);
@@ -211,7 +541,7 @@ function () {
 }();
 
 var player = new Player("#player");
-},{"./help":"src/js/help.js"}],"C:/Users/datou/AppData/Roaming/npm-cache/_npx/9804/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./help":"src/js/help.js","_fast-glob@2.2.7@fast-glob/out/managers/options":"node_modules/_fast-glob@2.2.7@fast-glob/out/managers/options.js"}],"C:/Users/datou/AppData/Roaming/npm-cache/_npx/18648/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -239,7 +569,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61525" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65498" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -414,5 +744,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["C:/Users/datou/AppData/Roaming/npm-cache/_npx/9804/node_modules/parcel/src/builtins/hmr-runtime.js","src/js/index.js"], null)
+},{}]},{},["C:/Users/datou/AppData/Roaming/npm-cache/_npx/18648/node_modules/parcel/src/builtins/hmr-runtime.js","src/js/index.js"], null)
 //# sourceMappingURL=/js.d818e0ef.js.map

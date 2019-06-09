@@ -6,7 +6,7 @@
     transform: rotate(360deg);
   }
 }
-.player {
+#player {
   background-color: #060a3d;
   height: 100vh;
   width: 100vw;
@@ -14,26 +14,26 @@
   flex-direction: column;
   overflow: hidden;
 }
-.player header {
+#player header {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.player header h1 {
+#player header h1 {
   color: white;
   padding: 20px 0 14px 0;
 }
-.player header p {
+#player header p {
   color: #868AAF;
 }
-.player header .changePage {
+#player header .changePage {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 24px 0;
 }
-.player header .changePage span {
+#player header .changePage span {
   margin: 0 5px;
   display: block;
   width: 6px;
@@ -41,23 +41,23 @@
   border-radius: 50%;
   background-color: #6a134f;
 }
-.player header .changePage span.active {
+#player header .changePage span.active {
   width: 10px;
   height: 10px;
   background-color: #db3baa;
 }
-.player main {
+#player main {
   width: 200vw;
   flex-grow: 1;
   display: flex;
 }
-.player main .pageOne {
+#player main .pageOne {
   width: 100vw;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
 }
-.player main .pageOne .effect {
+#player main .pageOne .effect {
   width: 100vw;
   flex-direction: column;
   display: flex;
@@ -67,73 +67,73 @@
   position: relative;
   overflow: hidden;
 }
-.player main .pageOne .effect > div {
+#player main .pageOne .effect > div {
   position: absolute;
 }
-.player main .pageOne .effect .effect1 {
+#player main .pageOne .effect .effect1 {
   background: url(/effect-no-move.e6a51026.svg) 0 0 no-repeat;
   width: 70vw;
   height: 70vw;
   animation: rotate 20s linear infinite;
 }
-.player main .pageOne .effect .effect2 {
+#player main .pageOne .effect .effect2 {
   background: url(/effect-move1.8d0ce205.svg) 0 0 no-repeat;
   width: 60vw;
   height: 60vw;
   animation: rotate 10s linear infinite reverse;
 }
-.player main .pageOne .effect .effect3 {
+#player main .pageOne .effect .effect3 {
   background: url(/effect-move2.143040a0.svg) 0 0 no-repeat;
   width: 24vw;
   height: 24vw;
   animation: rotate 10s linear infinite;
 }
-.player main .pageOne article.lyric {
+#player main .pageOne article.lyric {
   text-align: center;
 }
-.player main .pageOne article.lyric p {
+#player main .pageOne article.lyric p {
   line-height: 1.6;
   color: #868AAF;
 }
-.player main .pageOne article.lyric p.active {
+#player main .pageOne article.lyric p.active {
   color: white;
   font-size: 4.5rem;
 }
-.player main .pageTwo {
+#player main .pageTwo {
   width: 100vw;
   background-color: red;
 }
-.player footer .controls {
+#player footer .controls {
   display: flex;
   justify-content: center;
   padding: 16px 0;
 }
-.player footer .controls svg {
+#player footer .controls svg {
   width: 4rem;
   height: 4rem;
   margin: 0 20px;
 }
-.player footer .bar {
+#player footer .bar {
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
-.player footer .bar span {
+#player footer .bar span {
   color: #868AAF;
 }
-.player footer .bar span.begin {
+#player footer .bar span.begin {
   padding-left: 10px;
 }
-.player footer .bar span.end {
+#player footer .bar span.end {
   padding-right: 10px;
 }
-.player footer .bar .barWrapper {
+#player footer .bar .barWrapper {
   display: flex;
   margin: 0 8px;
   position: relative;
   align-items: center;
 }
-.player footer .bar .barWrapper .point {
+#player footer .bar .barWrapper .point {
   position: absolute;
   background: url(/progress.798a5c76.svg) no-repeat;
   background-size: contain;
@@ -141,27 +141,27 @@
   height: 16px;
   z-index: 1;
 }
-.player footer .bar .barWrapper .barContent {
+#player footer .bar .barWrapper .barContent {
   border-radius: 3px;
   width: 65vw;
   height: 4px;
   background-color: #0025fe;
 }
-.player footer .buttons {
+#player footer .buttons {
   align-items: center;
   padding: 20px;
   display: flex;
   justify-content: space-around;
 }
-.player footer .buttons svg {
+#player footer .buttons svg {
   width: 30px;
   height: 30px;
 }
-.player footer .buttons svg.pause {
+#player footer .buttons svg.pausing, #player footer .buttons svg.playing {
   width: 60px;
   height: 60px;
 }
-.player footer .buttons svg.controlSong {
+#player footer .buttons svg.controlSong {
   width: 45px;
   height: 45px;
 }
