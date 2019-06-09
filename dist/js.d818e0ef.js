@@ -495,7 +495,8 @@ function () {
         _this3.playNextSong();
       };
 
-      searchInput.onsubmit = function () {
+      searchInput.onsubmit = function (e) {
+        e.preventDefault();
         alert(1);
       };
     }
