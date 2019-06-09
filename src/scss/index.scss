@@ -21,34 +21,6 @@ $background: #060a3d;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    .searchSong {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding-top: 12px;
-      width: 100vw;
-      img {
-        width: 3.5rem;
-        height: 3.5rem;
-        border-radius: 50%;
-        margin-right: 3rem;
-      }
-      #searchInput {
-        color: $color;
-        border: none;
-        outline: none;
-        width:68vw;
-        height: 3.5rem;
-        background-color: rgb(80, 83, 119);
-        border-radius: 4px;
-        padding: .5em;
-        font-size: 4rem;
-        margin-right: 1rem;
-      }
-      #searchBtn {
-        color: $color;
-      }
-    }
     h1 {
       color: $color;
       padding: 20px 0 14px 0;

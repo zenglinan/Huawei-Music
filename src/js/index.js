@@ -1,6 +1,6 @@
 import help from './help'
 import { prepare } from '_fast-glob@2.2.7@fast-glob/out/managers/options';
-
+window.help = help
 class Player {
   constructor(rootNode) {
     this.root = document.querySelector(rootNode)
@@ -36,15 +36,11 @@ class Player {
     nextBtn.onclick = () => {
       this.playNextSong()
     }
-    searchInput.onsubmit = (e) => {
-      e.preventDefault()
-      help.ajax({ method: 'POST', url: ``})
-    }
+    
   }
   playOrPause(option) {
     if (option === "play") {
       this.audio.play()
-      console.log('here')
       playBtn.classList.remove('pausing')
       playBtn.classList.add('playing')
       this.$("#playBtn>use").setAttribute('xlink:href', "#playing")

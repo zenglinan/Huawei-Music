@@ -1,6 +1,6 @@
 export default {
-  
-  ajax: function ({ method, url }) {
+
+  ajax: function ({ method, url, data = {} }) {
     return new Promise(function (reslove, reject) {
       let xhr = new XMLHttpRequest()
       xhr.open(method, url)
@@ -11,7 +11,7 @@ export default {
           }
         }
       }
-      xhr.send()
+      xhr.send(data)
     })
   }
 }
