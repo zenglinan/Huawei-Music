@@ -147,7 +147,7 @@ var _default = {
   }
 };
 exports.default = _default;
-},{}],"C:/Users/datou/AppData/Roaming/npm-cache/_npx/18648/node_modules/parcel/node_modules/process/browser.js":[function(require,module,exports) {
+},{}],"C:/Users/datou/AppData/Roaming/npm-cache/_npx/13536/node_modules/parcel/node_modules/process/browser.js":[function(require,module,exports) {
 
 // shim for using process in browser
 var process = module.exports = {}; // cached from whatever global is present so that test runners that stub it
@@ -423,7 +423,7 @@ function prepare(options) {
 }
 
 exports.prepare = prepare;
-},{"process":"C:/Users/datou/AppData/Roaming/npm-cache/_npx/18648/node_modules/parcel/node_modules/process/browser.js"}],"src/js/index.js":[function(require,module,exports) {
+},{"process":"C:/Users/datou/AppData/Roaming/npm-cache/_npx/13536/node_modules/parcel/node_modules/process/browser.js"}],"src/js/index.js":[function(require,module,exports) {
 "use strict";
 
 var _help = _interopRequireDefault(require("./help"));
@@ -544,7 +544,7 @@ function () {
 }();
 
 var player = new Player("#player");
-},{"./help":"src/js/help.js","_fast-glob@2.2.7@fast-glob/out/managers/options":"node_modules/_fast-glob@2.2.7@fast-glob/out/managers/options.js"}],"C:/Users/datou/AppData/Roaming/npm-cache/_npx/11156/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./help":"src/js/help.js","_fast-glob@2.2.7@fast-glob/out/managers/options":"node_modules/_fast-glob@2.2.7@fast-glob/out/managers/options.js"}],"C:/Users/datou/AppData/Roaming/npm-cache/_npx/8948/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -572,7 +572,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59657" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50477" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -747,5 +747,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["C:/Users/datou/AppData/Roaming/npm-cache/_npx/11156/node_modules/parcel/src/builtins/hmr-runtime.js","src/js/index.js"], null)
-//# sourceMappingURL=/js.d818e0ef.js.map
+},{}]},{},["C:/Users/datou/AppData/Roaming/npm-cache/_npx/8948/node_modules/parcel/src/builtins/hmr-runtime.js","src/js/index.js"], null)
+//# sourceMappingURL=js.d818e0ef.js.map

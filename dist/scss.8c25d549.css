@@ -20,34 +20,6 @@
   justify-content: center;
   align-items: center;
 }
-#player header .searchSong {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 12px;
-  width: 100vw;
-}
-#player header .searchSong img {
-  width: 3.5rem;
-  height: 3.5rem;
-  border-radius: 50%;
-  margin-right: 3rem;
-}
-#player header .searchSong #searchInput {
-  color: white;
-  border: none;
-  outline: none;
-  width: 68vw;
-  height: 3.5rem;
-  background-color: #505377;
-  border-radius: 4px;
-  padding: 0.5em;
-  font-size: 4rem;
-  margin-right: 1rem;
-}
-#player header .searchSong #searchBtn {
-  color: white;
-}
 #player header h1 {
   color: white;
   padding: 20px 0 14px 0;
@@ -99,19 +71,19 @@
   position: absolute;
 }
 #player main .pageOne .effect .effect1 {
-  background: url(/effect-no-move.e6a51026.svg) 0 0 no-repeat;
+  background: url(effect-no-move.e6a51026.svg) 0 0 no-repeat;
   width: 70vw;
   height: 70vw;
   animation: rotate 20s linear infinite;
 }
 #player main .pageOne .effect .effect2 {
-  background: url(/effect-move1.8d0ce205.svg) 0 0 no-repeat;
+  background: url(effect-move1.8d0ce205.svg) 0 0 no-repeat;
   width: 60vw;
   height: 60vw;
   animation: rotate 10s linear infinite reverse;
 }
 #player main .pageOne .effect .effect3 {
-  background: url(/effect-move2.143040a0.svg) 0 0 no-repeat;
+  background: url(effect-move2.143040a0.svg) 0 0 no-repeat;
   width: 24vw;
   height: 24vw;
   animation: rotate 10s linear infinite;
@@ -163,7 +135,7 @@
 }
 #player footer .bar .barWrapper .point {
   position: absolute;
-  background: url(/progress.798a5c76.svg) no-repeat;
+  background: url(progress.798a5c76.svg) no-repeat;
   background-size: contain;
   width: 16px;
   height: 16px;
@@ -194,4 +166,4 @@
   height: 45px;
 }
 
-/*# sourceMappingURL=/scss.8c25d549.css.map */
+/*# sourceMappingURL=scss.8c25d549.css.map */
